@@ -1,5 +1,6 @@
 import { withRouter } from 'dva/router'
-import React from 'react'
+import React, { useEffect } from 'react'
+import request from '../utils/request'
 
 export default function Center() {
   return (
@@ -11,6 +12,11 @@ export default function Center() {
 }
 
 function Child(props) {
+  useEffect(() => {
+    request('/api/mmdb/movie/v3/list/hot.json?ct=%E4%B8%8A%E6%B5%B7&ci=10&channelId=4').then(res => {
+      console.log(res.data)
+    })
+  }, [])
   return <div>
     <button onClick={() => {
       // console.log(props)
