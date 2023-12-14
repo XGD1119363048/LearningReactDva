@@ -16,6 +16,10 @@ function Child(props) {
     request('/api/mmdb/movie/v3/list/hot.json?ct=%E4%B8%8A%E6%B5%B7&ci=10&channelId=4').then(res => {
       console.log(res.data)
     })
+
+    request('/users').then(res => {
+      console.log(res.data)
+    })
   }, [])
   return <div>
     <button onClick={() => {
